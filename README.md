@@ -23,6 +23,12 @@ A React Native application that helps users find the perfect products by describ
 
 _Add screenshots of your app here once it's running_
 
+## 🎬 Demo
+
+![App Demo](https://your-video-url-or-gif)
+
+_Experience the AI Product Advisor: describe what you need and get personalized product recommendations powered by Google's Gemini AI._
+
 ## 🏃‍♂️ Getting Started
 
 ### Prerequisites
@@ -180,12 +186,5 @@ The catalog is defined in `src/catalog.ts` and can be extended with additional p
 expo build:android
 expo build:ios
 ```
-
-### Production Considerations
-
-- Set production API keys
-- Enable error tracking (e.g., Sentry)
-- Optimize bundle size
-- Add analytics if needed
 
 **Built by ighmaz with ❤️ using React Native, TypeScript, and Google Gemini AI**
