@@ -11,7 +11,7 @@ import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { SearchInput } from "./SearchInput";
-import { RecommendationCard } from "./RecommendationCard";
+import { RecommendationCarousel } from "./RecommendationCarousel";
 import { LoadingState } from "./LoadingState";
 import { useAppStore } from "../stores/useAppStore";
 import { useProductSearch } from "../hooks/useProductSearch";
@@ -79,14 +79,10 @@ const AdvisorScreen: React.FC<AdvisorScreenProps> = () => {
               </Text>
             </View>
 
-            {recommendations.map((recommendation, index) => (
-              <RecommendationCard
-                key={`${recommendation.product.brand}-${recommendation.product.product_name}-${index}`}
-                recommendation={recommendation}
-                index={index}
-                onPress={() => handleRecommendationPress(recommendation)}
-              />
-            ))}
+            <RecommendationCarousel
+              recommendations={recommendations}
+              onRecommendationPress={handleRecommendationPress}
+            />
           </View>
         )}
 
@@ -165,6 +161,7 @@ const styles = StyleSheet.create({
   },
   resultsContainer: {
     marginTop: 20,
+    flex: 1,
   },
   resultsHeader: {
     flexDirection: "row",
