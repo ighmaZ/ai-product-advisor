@@ -10,6 +10,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useAppStore } from "../stores/useAppStore";
 import { useProductSearch } from "../hooks/useProductSearch";
+import { LoadingDots } from "./LoadingDots";
 
 const { width } = Dimensions.get("window");
 
@@ -79,7 +80,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
           disabled={!localQuery.trim() || isLoading}
         >
           {isLoading ? (
-            <Ionicons name="reload-outline" size={20} color="#9333EA" />
+            <LoadingDots />
           ) : (
             <Ionicons name="arrow-forward" size={20} color="#9333EA" />
           )}
