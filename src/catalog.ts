@@ -407,4 +407,52 @@ export default [
     description:
       "Capture every detail of your journey with the Qubo Dash Cam Pro, featuring high-quality video recording and a range of advanced safety features.",
   },
+  {
+    brand: "Apple",
+    product_name: "MacBook Air M4 13-inch",
+    price: 109900,
+    category: "Electronics",
+    description:
+      "Ultra-lightweight at just 2.7 pounds with up to 18 hours of battery life, perfect for travel. Features the powerful M4 chip for exceptional performance and efficiency.",
+  },
+  {
+    brand: "Dell",
+    product_name: "XPS 13 Snapdragon Edition",
+    price: 119900,
+    category: "Electronics",
+    description:
+      "Premium ultrabook with nearly 20 hours of battery life and sleek lightweight design. Powered by Snapdragon processor for all-day productivity on the go.",
+  },
+  {
+    brand: "HP",
+    product_name: "OmniBook X",
+    price: 99900,
+    category: "Electronics",
+    description:
+      "Ultraportable Windows laptop with over 18 hours of battery life. Powered by Qualcomm Snapdragon X chips for excellent performance and energy efficiency.",
+  },
+  {
+    brand: "ASUS",
+    product_name: "Zenbook S 13 OLED",
+    price: 89900,
+    category: "Electronics",
+    description:
+      "Incredibly lightweight at 2.2 pounds with a stunning OLED display. Perfect travel companion with excellent battery life and premium build quality.",
+  },
+  {
+    brand: "HP",
+    product_name: "Spectre x360 14",
+    price: 134900,
+    category: "Electronics",
+    description:
+      "Versatile 2-in-1 convertible laptop with 14-inch OLED touchscreen and up to 18 hours of battery life. Ideal for travelers seeking flexibility and premium features.",
+  },
+  {
+    brand: "Lenovo",
+    product_name: "ThinkPad X1 Carbon Gen 12",
+    price: 149900,
+    category: "Electronics",
+    description:
+      "Business-grade ultrabook weighing under 2.5 pounds with legendary ThinkPad durability. Features excellent keyboard and up to 16 hours of battery life for productivity anywhere.",
+  },
 ];
