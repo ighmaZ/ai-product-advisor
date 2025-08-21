@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
+import { BlurView } from "expo-blur";
 import { Ionicons } from "@expo/vector-icons";
 import { SearchInput } from "./SearchInput";
 import { RecommendationCarousel } from "./RecommendationCarousel";
@@ -48,16 +49,22 @@ const AdvisorScreen: React.FC<AdvisorScreenProps> = () => {
         contentContainerStyle={styles.scrollContent}
         keyboardShouldPersistTaps="handled"
       >
-        <View style={styles.header}>
-          <View style={styles.titleContainer}>
-            <Ionicons name="sparkles" size={32} color="#FCD34D" />
-            <Text style={styles.title}>AI Product Advisor</Text>
-            <Text style={styles.subtitle}>
-              Describe what you need in natural language and get personalized
-              recommendations
-            </Text>
+        <BlurView
+          intensity={20}
+          tint="light"
+          style={styles.glassmorphismHeader}
+        >
+          <View style={styles.header}>
+            <View style={styles.titleContainer}>
+              <Ionicons name="sparkles" size={32} color="#FCD34D" />
+              <Text style={styles.title}>AI Product Advisor</Text>
+              <Text style={styles.subtitle}>
+                Describe what you need in natural language and get personalized
+                recommendations
+              </Text>
+            </View>
           </View>
-        </View>
+        </BlurView>
 
         <SearchInput placeholder="e.g., I need a lightweight laptop for travel with long battery life..." />
 
@@ -111,8 +118,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  header: {
+  glassmorphismHeader: {
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.2)",
+    marginHorizontal: -20,
+    marginTop: -20,
+    paddingHorizontal: 20,
+    paddingTop: Platform.OS === "ios" ? 60 : 40,
+    paddingBottom: 20,
     marginBottom: 30,
+    overflow: "hidden",
+    // Shadow for iOS
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    // Elevation for Android
+    elevation: 8,
+  },
+  header: {
+    marginBottom: 0,
   },
   scrollView: {
     flex: 1,
@@ -122,7 +152,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   scrollContent: {
-    paddingTop: Platform.OS === "ios" ? 60 : 40,
+    paddingTop: 20,
     paddingHorizontal: 20,
     paddingBottom: 100,
   },
@@ -133,14 +163,20 @@ const styles = StyleSheet.create({
     marginTop: 12,
     marginBottom: 8,
     textAlign: "center",
+    textShadowColor: "rgba(0, 0, 0, 0.3)",
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
   },
   subtitle: {
     fontSize: 16,
-    color: "#E5E7EB",
+    color: "#F3F4F6",
     textAlign: "center",
     marginBottom: 30,
     lineHeight: 24,
     paddingHorizontal: 10,
+    textShadowColor: "rgba(0, 0, 0, 0.2)",
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
   errorContainer: {
     flexDirection: "row",
