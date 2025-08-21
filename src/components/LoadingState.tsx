@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { LoadingDots } from "./LoadingDots";
 
 interface LoadingStateProps {
   message?: string;
@@ -17,11 +18,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
 
       <Text style={styles.message}>{message}</Text>
 
-      <View style={styles.dotsContainer}>
-        {[0, 1, 2].map((index) => (
-          <View key={index} style={styles.dot} />
-        ))}
-      </View>
+      <LoadingDots color="#FCD34D" size={8} spacing={4} />
     </View>
   );
 };
@@ -42,17 +39,5 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingHorizontal: 20,
     lineHeight: 24,
-  },
-  dotsContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: "#FCD34D",
-    marginHorizontal: 4,
   },
 });

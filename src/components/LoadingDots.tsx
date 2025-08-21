@@ -10,10 +10,20 @@ import Animated, {
   Easing,
 } from "react-native-reanimated";
 
-export function LoadingDots() {
-  const dot1 = useSharedValue(0.5);
-  const dot2 = useSharedValue(0.5);
-  const dot3 = useSharedValue(0.5);
+interface LoadingDotsProps {
+  color?: string;
+  size?: number;
+  spacing?: number;
+}
+
+export function LoadingDots({
+  color = "#9333EA",
+  size = 6,
+  spacing = 3,
+}: LoadingDotsProps) {
+  const dot1 = useSharedValue(0.3);
+  const dot2 = useSharedValue(0.3);
+  const dot3 = useSharedValue(0.3);
 
   useEffect(() => {
     const animateDot = (
@@ -24,8 +34,14 @@ export function LoadingDots() {
         delay,
         withRepeat(
           withSequence(
-            withTiming(1, { duration: 300, easing: Easing.out(Easing.quad) }),
-            withTiming(0.5, { duration: 300, easing: Easing.in(Easing.quad) })
+            withTiming(1, {
+              duration: 400,
+              easing: Easing.out(Easing.cubic),
+            }),
+            withTiming(0.3, {
+              duration: 400,
+              easing: Easing.in(Easing.cubic),
+            })
           ),
           -1,
           false
@@ -34,30 +50,59 @@ export function LoadingDots() {
     };
 
     animateDot(dot1, 0);
-    animateDot(dot2, 150);
-    animateDot(dot3, 300);
+    animateDot(dot2, 200);
+    animateDot(dot3, 400);
   }, []);
 
   const dot1Style = useAnimatedStyle(() => ({
     opacity: dot1.value,
-    transform: [{ scale: dot1.value }],
+    transform: [
+      {
+        scale: 0.7 + dot1.value * 0.5, // Scale from 0.7 to 1.2
+      },
+      {
+        translateY: (1 - dot1.value) * -2, // Subtle bounce effect
+      },
+    ],
   }));
 
   const dot2Style = useAnimatedStyle(() => ({
     opacity: dot2.value,
-    transform: [{ scale: dot2.value }],
+    transform: [
+      {
+        scale: 0.7 + dot2.value * 0.5,
+      },
+      {
+        translateY: (1 - dot2.value) * -2,
+      },
+    ],
   }));
 
   const dot3Style = useAnimatedStyle(() => ({
     opacity: dot3.value,
-    transform: [{ scale: dot3.value }],
+    transform: [
+      {
+        scale: 0.7 + dot3.value * 0.5,
+      },
+      {
+        translateY: (1 - dot3.value) * -2,
+      },
+    ],
   }));
+
+  const dotStyle = {
+    width: size,
+    height: size,
+    borderRadius: size / 2,
+    backgroundColor: color,
+    marginHorizontal: spacing,
+  };
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.dot, dot1Style]} />
-      <Animated.View style={[styles.dot, dot2Style]} />
-      <Animated.View style={[styles.dot, dot3Style]} />
+      <Animated.View style={[dotStyle, dot1Style]} />
+      <Animated.View style={[dotStyle, dot2Style]} />
+      <Animated.View style={[dotStyle, dot3Style]} />
     </View>
   );
 }
@@ -67,12 +112,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-  },
-  dot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: "#FFFFFF",
-    marginHorizontal: 2,
   },
 });
