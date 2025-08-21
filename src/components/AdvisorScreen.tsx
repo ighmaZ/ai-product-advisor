@@ -11,6 +11,7 @@ import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { BlurView } from "expo-blur";
 import { Ionicons } from "@expo/vector-icons";
+import LottieView from "lottie-react-native";
 import { SearchInput } from "./SearchInput";
 import { RecommendationCarousel } from "./RecommendationCarousel";
 import { LoadingState } from "./LoadingState";
@@ -56,11 +57,15 @@ const AdvisorScreen: React.FC<AdvisorScreenProps> = () => {
         >
           <View style={styles.header}>
             <View style={styles.titleContainer}>
-              <Ionicons name="sparkles" size={32} color="#FCD34D" />
               <Text style={styles.title}>AI Product Advisor</Text>
+              <LottieView
+                source={require("../../assets/search.json")}
+                autoPlay
+                loop
+                style={styles.lottieAnimation}
+              />
               <Text style={styles.subtitle}>
-                Describe what you need in natural language and get personalized
-                recommendations
+                Describe what you need and get personalized recommendations
               </Text>
             </View>
           </View>
@@ -151,6 +156,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
+  lottieAnimation: {
+    width: 300,
+    height: 200,
+    marginBottom: 0,
+  },
   scrollContent: {
     paddingTop: 20,
     paddingHorizontal: 20,
@@ -160,8 +170,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     color: "#FFFFFF",
-    marginTop: 12,
-    marginBottom: 8,
+    marginTop: 40,
+    marginBottom: -20,
     textAlign: "center",
     textShadowColor: "rgba(0, 0, 0, 0.3)",
     textShadowOffset: { width: 0, height: 2 },
@@ -171,9 +181,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#F3F4F6",
     textAlign: "center",
-    marginBottom: 30,
-    lineHeight: 24,
-    paddingHorizontal: 10,
+    marginBottom: 0,
+    lineHeight: 20,
+    // paddingHorizontal: 10,
     textShadowColor: "rgba(0, 0, 0, 0.2)",
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 2,
