@@ -1,27 +1,56 @@
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-
-interface AdvisorScreenProps {
-  // Add props as needed
-}
+import {
+  Animated,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import { StatusBar } from "expo-status-bar";
+interface AdvisorScreenProps {}
 
 const AdvisorScreen: React.FC<AdvisorScreenProps> = () => {
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>AI Product Advisor</Text>
-        <Text style={styles.subtitle}>
-          Welcome to your AI-powered product recommendation system
-        </Text>
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <StatusBar style="light" />
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        <View style={styles.header}>
+          <Animated.View style={styles.titleContainer}>
+            {/* <Sparkles size={32} color="#FCD34D" /> */}
+            <Text style={styles.title}>AI Product Finder</Text>
+            <Text style={styles.subtitle}>
+              Describe what you need in natural language
+            </Text>
+          </Animated.View>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+  },
+  header: {
+    marginBottom: 30,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  titleContainer: {
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  scrollContent: {
+    paddingTop: Platform.OS === "ios" ? 60 : 40,
+    paddingHorizontal: 20,
+    paddingBottom: 100,
   },
   content: {
     padding: 20,
@@ -39,31 +68,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 30,
     lineHeight: 24,
-  },
-  section: {
-    marginBottom: 25,
-    backgroundColor: "#fff",
-    padding: 15,
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "600",
-    color: "#333",
-    marginBottom: 8,
-  },
-  description: {
-    fontSize: 14,
-    color: "#666",
-    lineHeight: 20,
   },
 });
 
