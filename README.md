@@ -25,7 +25,11 @@ _Add screenshots of your app here once it's running_
 
 ## 🎬 Demo
 
-![App Demo](https://your-video-url-or-gif)
+![App Demo](
+
+https://github.com/user-attachments/assets/9e211bab-5882-4e8a-810a-71ec1ff5644e
+
+)
 
 _Experience the AI Product Advisor: describe what you need and get personalized product recommendations powered by Google's Gemini AI._
 
